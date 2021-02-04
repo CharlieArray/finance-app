@@ -9,7 +9,8 @@ export default class MainPage extends React.Component {
     super(props);
 
     this.state = {
-      stock: ["Apple", "Microsoft",],
+      stocks: ["Apple", "Microsoft", "MongoDB"],
+      last_price: [133, 243, 395 ]
 
     };
   }
@@ -22,19 +23,22 @@ export default class MainPage extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ stock: this.state.stock.concat(event.target.value) });
+    this.setState({ stocks: this.state.stocks.concat(event.target.value) });
   };
 
 
   render() {
     return (
-      <>d
+      <>
         <MainPageBanner />
         <TradeListForm 
-        stock={this.state.stock}
+        stocks={this.state.stocks}
         handleSubmit = {this.handleSubmit}
         />
-        <TradeListResult/>
+        <TradeListResult 
+        stocks={this.state.stocks}
+        last_price = {this.state.last_price}
+        />
       </>
     );
   }

@@ -11,13 +11,12 @@ const Banner = styled.div`
   justify-content: center;
   border: 3px solid black;
   height: 100px;
+  width: 500px;
 `;
 
 const HeaderText = styled.h1`
   font-size: 22px;
 `;
-
-
 
 function MainPageBanner() {
   return (
