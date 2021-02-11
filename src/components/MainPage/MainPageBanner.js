@@ -1,28 +1,43 @@
 import React from "react";
 import styled from "styled-components";
+import envelopeMoney2 from '../images/envelopeMoney2.jpg'
 
 const Banner = styled.div`
-  display: flex;
   margin-left: auto;
   margin-right: auto;
   margin-top: 15px;
   margin-bottom: 15px;
-  align-content: center;
-  justify-content: center;
-  border: 3px solid black;
-  height: 100px;
-  width: 500px;
+  border-radius: 15px;
+  text-align:center;
+  border: 2px solid black;
+  height: 175px;
+  width: 300px;
 `;
 
 const HeaderText = styled.h1`
-  font-size: 22px;
-`;
+  font-size: 24px;
+  margin: 10px;
+`
+
+const SmallerHeaderText = styled.h2`
+  font-size: 18px;
+  margin: 10px;
+`
+
+
 
 function MainPageBanner() {
   return (
     <>
       <Banner>
-        <HeaderText>Welcome to the Brokerage</HeaderText>
+        <HeaderText>Welcome to Envelope
+        <img src={envelopeMoney2} alt="this is money envelope" width="75" height="75"></img>
+
+        </HeaderText>
+
+        <SmallerHeaderText>
+          The Finance App
+          </SmallerHeaderText>
       </Banner>
     </>
   );

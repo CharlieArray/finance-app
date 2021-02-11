@@ -5,16 +5,16 @@ import {AccountContext} from './AccountContext'
 import LoginForm from './LoginForm';
 import  SignupForm  from './SignupForm';
 import {Redirect} from 'react-router-dom'
+import envelopeMoney2 from '../images/envelopeMoney2.jpg'
+
 
 
 const Background = styled.div`
   width: 100%;
   display: flex;
-  background-color: lightblue;
+  background-color: #ffffff;
   height: auto;
 `
-
-
 
 const BoxContainer = styled.div`
   width: 320px;
@@ -77,6 +77,15 @@ const SmallText = styled.h5`
   margin: 0;
 `
 
+const LogoContainer = styled.div`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 25%;
+  margin-top: 20px;
+`
+
+
 const InnerContainer = styled.div`
   width: 100%;
   display: flex;
@@ -138,25 +147,30 @@ export function AccountBox(props) {
     <Background>
     <BoxContainer>
       <TopContainer>
-        <BackDrop 
-        initial={false} 
-        animate={isExpanded ? "expanded" : "collapsed"} 
-        variants={backdropVariants}
-        transition = {expandingTransition}
-        />
-        
-        {active === "signin" &&
-         <HeaderContainer>
-          <HeaderText>Welcome</HeaderText>
-          <HeaderText>Back</HeaderText>
-          <SmallText>Please sign in to continue </SmallText>
-        </HeaderContainer>}
-        {active === "signup" &&
-         <HeaderContainer>
-          <HeaderText>Create</HeaderText>
-          <HeaderText>Account</HeaderText>
-          <SmallText>Please sign up to continue</SmallText>
-        </HeaderContainer>}
+          <BackDrop 
+          initial={false} 
+          animate={isExpanded ? "expanded" : "collapsed"} 
+          variants={backdropVariants}
+          transition = {expandingTransition}
+          />
+          
+          {active === "signin" &&
+          <HeaderContainer>
+              <HeaderText>Welcome</HeaderText>
+                <HeaderText>
+                    Back to Envelope
+                    <LogoContainer>
+                      <img src={envelopeMoney2} alt="this is money envelope" width="60" height="60"></img>
+                    </LogoContainer>
+                </HeaderText>
+              <SmallText>Please sign in to continue </SmallText>
+          </HeaderContainer>}
+            {active === "signup" &&
+          <HeaderContainer>
+              <HeaderText>Create</HeaderText>
+              <HeaderText>Account</HeaderText>
+              <SmallText>Please sign up to continue</SmallText>
+          </HeaderContainer>}
       </TopContainer>
       <InnerContainer>
         {active === 'signin' && <LoginForm/> }

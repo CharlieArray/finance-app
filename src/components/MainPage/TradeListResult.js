@@ -5,10 +5,11 @@ const TradeResultContainer = styled.div`
   display: flex;
   margin: auto;
   margin-top: 10px;
-  padding: 5px;
   align-content: center;
-  width: 200px;
+  width: 275px;
   height: auto;
+  padding: 5px;
+  border-radius: 15px;
   border: 2px solid black;
 `;
 
@@ -28,7 +29,7 @@ export default class TradeListResult extends React.Component {
     return (
       <TradeResultContainer>
         <TradeItem>
-          {this.props.stocks.map((stock) => {
+          {this.props.stock.map((stock) => {
             return (
               <div>
                 <h3>name: {stock}</h3>

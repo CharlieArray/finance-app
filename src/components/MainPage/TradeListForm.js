@@ -6,7 +6,8 @@ const TradeListContainer = styled.div`
   margin: auto;
   padding: 5px;
   align-content: center;
-  width: 200px;
+  border-radius: 15px;
+  width: 275px;
   border: 2px solid black;
 `;
 
@@ -20,7 +21,7 @@ export default class TradeList extends React.Component {
             <label>
               Create Stock Watchlist
               <input 
-              name="stocks" 
+              name="stock" 
               type="text" 
               placeholder="Apple"
               onChange ={this.props.handleChange}
@@ -28,11 +29,7 @@ export default class TradeList extends React.Component {
             </label>
               <br/>
             <label>
-              Stock Names
-              <input 
-              type="text" 
-              value={this.props.stocks}
-              ></input>
+            
             </label>
             <input 
             type="submit"

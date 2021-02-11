@@ -12,15 +12,26 @@ import {withRouter} from 'react-router-dom'
 
   const onSubmit = (event) =>{
     event.preventDefault();
+    fetch("http://localhost:8000/users", {
+      method: "post",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        user_name: event.target.user_name.value,
+        password: event.target.password.value,
+        email: event.target.email.value
+      }),
+    });
     props.history.push("/main")
   }
 
   return (
     <BoxContainer>
       <FormContainer onSubmit={onSubmit}>
-        <Input type="text" placeholder="Username" />
-        <Input type="email" placeholder="Email" />
-        <Input type="password" placeholder="Password" />
+        <Input type="text" placeholder="Username" name="user_name"/>
+        <Input type="email" placeholder="Email" name="email"/>
+        <Input type="password" placeholder="Password"  name="password"/>
         <Input type="password" placeholder="Confirm Password" />
 
         <Marginer direction="vertical" margin={5} />
