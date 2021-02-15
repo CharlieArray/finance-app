@@ -2,6 +2,7 @@ import React from "react";
 import MainPageBanner from './MainPageBanner'
 import TradeListForm from "./TradeListForm";
 import TradeListResult from "./TradeListResult";
+import TokenService from "../../services/Token-Service"
 
 export default class MainPage extends React.Component {
 
@@ -20,10 +21,31 @@ export default class MainPage extends React.Component {
   //   console.log(e.target.value);
   // };
 
+  //componentDidMount for GET all stocks currently
+
+
+  componentDidMount(){
+    fetch("http://localhost:8000/watchlist/stocks", {
+      method: "get",
+      headers: {
+        "content-type": "application/json",
+        "authorization": "bearer " + TokenService.getAuthToken()
+      }
+    })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(console.error)
+      //put data in setState
+  };
+
   handleSubmit = (event) => {
     event.preventDefault();
-    this.setState({ stock: this.state.stock.concat(event.target.stock.value) });
-  };
+    //post request
+  }
+
+    // displayResults = (data) => { 
+    //   this.setState({ stock: this.state.stock.concat(event.target.stock.value) });
+    // }
 
 
   render() {

@@ -10,6 +10,7 @@ import {
 } from "./CommonComponents";
 import { AccountContext } from "./AccountContext";
 import { withRouter } from "react-router-dom";
+import TokenService from '../../services/Token-Service'
 
 function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
@@ -25,14 +26,18 @@ function LoginForm(props) {
         user_name: event.target.user_name.value,
         password: event.target.password.value,
       }),
-    });
-    props.history.push("/main");
+    })
+    .then(res => res.json())
+    .then(data => {
+      TokenService.saveAuthToken(data.authToken)
+      props.history.push("/main");
+    })
   };
 
   return (
     <BoxContainer>
       <FormContainer onSubmit={onSubmit}>
-        <Input type="email" placeholder="Email" name="user_name" />
+        <Input type="username" placeholder="Username" name="user_name" />
         <Input type="password" placeholder="Password" name="password" />
         <Marginer direction="vertical" margin={5} />
         <MutedLink href="#">Forgot your password</MutedLink>
