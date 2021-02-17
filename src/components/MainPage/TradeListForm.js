@@ -2,10 +2,10 @@ import React from "react";
 import styled from "styled-components";
 
 const TradeListContainer = styled.div`
-  display: flex;
+  display: block;
+  text-align: center;
   margin: auto;
-  padding: 5px;
-  align-content: center;
+  padding: 20px;
   border-radius: 15px;
   width: 275px;
   border: 2px solid black;

@@ -17,7 +17,7 @@ function LoginForm(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8000/users", {
+    fetch("http://localhost:8000/auth/login", {
       method: "post",
       headers: {
         "content-type": "application/json",

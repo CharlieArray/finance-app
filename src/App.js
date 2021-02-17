@@ -2,8 +2,7 @@ import React from "react";
 import "./App.css";
 import styled from "styled-components";
 import MainPage from "./components/MainPage/MainPage";
-import { MyContext } from "./MyContext";
-import { Link, Route, Switch, BrowserRouter as Router} from "react-router-dom";
+import { Route, Switch, BrowserRouter as Router} from "react-router-dom";
 import { AccountBox } from "./components/LoginPage/index";
 
 const AppContainer = styled.div`

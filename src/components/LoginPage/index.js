@@ -4,7 +4,6 @@ import { motion } from 'framer-motion'
 import {AccountContext} from './AccountContext'
 import LoginForm from './LoginForm';
 import  SignupForm  from './SignupForm';
-import {Redirect} from 'react-router-dom'
 import envelopeMoney2 from '../images/envelopeMoney2.jpg'
 
 

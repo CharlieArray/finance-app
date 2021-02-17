@@ -5,7 +5,6 @@ const TradeResultContainer = styled.div`
   display: flex;
   margin: auto;
   margin-top: 10px;
-  align-content: center;
   width: 275px;
   height: auto;
   padding: 5px;
@@ -15,25 +14,45 @@ const TradeResultContainer = styled.div`
 
 const TradeItem = styled.div`
   margin: auto;
+  text-align: center;
+  height: auto;
   width: 200px;
-  height: 200px;
-  padding: 20px;
+  padding: 30px;
 `;
 
+const FlexParent = styled.div`
+  display: flex;
+`
+const FlexChild = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+const FlexFirstChild = styled.div`
+  margin-right: 20px;
+`
+
+
 export default class TradeListResult extends React.Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     return (
       <TradeResultContainer>
         <TradeItem>
-          {this.props.stock.map((stock) => {
+          {this.props.stocks.map((stock) => {
             return (
-              <div>
-                <h3>name: {stock}</h3>
-              </div>
+              <FlexParent>
+                <FlexFirstChild>
+                  <h3>{stock.ticker} : ${stock.price}</h3>
+                </FlexFirstChild>           
+                
+                <FlexChild>
+                  <button name="stock" onClick = {this.props.handleDelete}> Delete</button>
+                  {/* Need a way to assign stock.id (from database) to Flex Parent for event Handler() to delete*/}
+                </FlexChild>
+
+              </FlexParent>
             );
           })}
         </TradeItem>

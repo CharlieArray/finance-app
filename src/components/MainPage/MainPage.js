@@ -10,21 +10,25 @@ export default class MainPage extends React.Component {
     super(props);
 
     this.state = {
-      stock: ["Apple", "Microsoft", "MongoDB"],
-      price: [133, 243, 395 ]
+      stocks: [
+      {name: "Apple", price: 133.40}, 
+      {name: "Microsoft", price: 243.90}, 
+      {name: "MongoDB" , price: 395.5},
+       ],
     };
   }
 
-  // handleChange = (e) => {
-  //   e.preventDefault();
-  //   this.setState({ stock: e.target.value });
-  //   console.log(e.target.value);
-  // };
 
-  //componentDidMount for GET all stocks currently
+  // for GET all stocks currently
+ componentDidMount(){
+  this.getData()
+ }
 
+ componentWillUnmount(){
+   this.handleDelete()
+ }
 
-  componentDidMount(){
+  getData = () => {
     fetch("http://localhost:8000/watchlist/stocks", {
       method: "get",
       headers: {
@@ -33,32 +37,62 @@ export default class MainPage extends React.Component {
       }
     })
       .then(response => response.json())
-      .then(data => console.log(data))
+      .then(data => this.setState({stocks: data}))
       .catch(console.error)
-      //put data in setState
   };
+
 
   handleSubmit = (event) => {
     event.preventDefault();
-    //post request
+    const stock = {
+      stock: (event.target.stock.value).toUpperCase()
+    }
+  
+    //fetch for front end/ request for back end
+    fetch(`http://localhost:8000/watchlist/stocks/${stock.stock}`, {
+      method: "post", 
+      headers: {
+        "content-type": "application/json",
+        "authorization": "bearer " + TokenService.getAuthToken()
+      },
+      body: JSON.stringify(stock)
+    })
+      .then(response => response.json())
+      .then( data => this.getData() )
+
+  };
+
+  handleDelete = (event) => {
+    event.preventDefault()
+    const stockToDelete = {
+      id: ("20")
+    }
+
+    // NEED TO PASS IN TICKER NAME FROM RESULT COMPONENT TO PASS INTO FETCH REQUEST TEMPLATE LITERAL
+    
+     fetch(`http://localhost:8000/watchlist/stocks/${stockToDelete.id}`, {
+      method: "delete", 
+      headers: {
+        "content-type": "application/json",
+        "authorization": "bearer " + TokenService.getAuthToken()
+      },
+    })
+      .then(response => response.json())
+      .then(data => console.log('deleted'))
+    
   }
-
-    // displayResults = (data) => { 
-    //   this.setState({ stock: this.state.stock.concat(event.target.stock.value) });
-    // }
-
 
   render() {
     return (
       <>
         <MainPageBanner />
         <TradeListForm 
-        stock={this.state.stock}
-        handleSubmit = {this.handleSubmit}
+          stocks={this.state.stocks}
+          handleSubmit = {this.handleSubmit}
         />
         <TradeListResult 
-        stock={this.state.stock}
-        last_price = {this.state.price}
+          handleDelete = {this.handleDelete}
+          stocks={this.state.stocks}
         />
       </>
     );
