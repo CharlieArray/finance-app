@@ -11,6 +11,24 @@ const TradeListContainer = styled.div`
   border: 2px solid black;
 `;
 
+const SubmitButton = styled.button`
+    width: auto;
+    height: 50%;
+    margin: 3px;
+    padding: 5px 15%;
+    color: #fff;
+    font-size: 12px;
+    font-weight:400;
+    border: none;
+    border-radius: 100px 100px 100px 100px;
+    cursor: pointer;
+    transition: all, 240ms ease-in-out;
+    background: rgb(139,231,151);
+    background: linear-gradient(45deg,
+   rgba(139,231,151,1) 44%, 
+   rgba(148,201,233,1) 73%); 
+`
+
 export default class TradeList extends React.Component {
 
   render() {
@@ -19,11 +37,11 @@ export default class TradeList extends React.Component {
         <TradeListContainer>
           <form onSubmit={this.props.handleSubmit}>
             <label>
-              Create Stock Watchlist
+              Search for Stock Price:
               <input 
               name="stock" 
               type="text" 
-              placeholder="Apple"
+              placeholder="ex: AAPL, AMZN, MSFT"
               onChange ={this.props.handleChange}
               ></input>
             </label>
@@ -31,10 +49,10 @@ export default class TradeList extends React.Component {
             <label>
             
             </label>
-            <input 
+            <SubmitButton 
             type="submit"
             value="Submit"
-            />
+            >Submit</SubmitButton>
           </form>
         </TradeListContainer>
       </div>

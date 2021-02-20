@@ -4,12 +4,13 @@ import styled from "styled-components";
 const TradeResultContainer = styled.div`
   display: flex;
   margin: auto;
-  margin-top: 10px;
+  margin-top: 0px;
   width: 275px;
   height: auto;
   padding: 5px;
   border-radius: 15px;
   border: 2px solid black;
+  margin-bottom: 30px;
 `;
 
 const TradeItem = styled.div`
@@ -27,6 +28,7 @@ const FlexChild = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0px;
 `
 
 const FlexFirstChild = styled.div`
@@ -38,6 +40,8 @@ export default class TradeListResult extends React.Component {
 
   render() {
     return (
+    <>
+      <FlexChild><h2>Your Stock Watchlist 📈:</h2></FlexChild>
       <TradeResultContainer>
         <TradeItem>
           {this.props.stocks.map((stock) => {
@@ -48,7 +52,7 @@ export default class TradeListResult extends React.Component {
                 </FlexFirstChild>           
                 
                 <FlexChild>
-                  <button name="stock" onClick = {this.props.handleDelete}> Delete</button>
+                  <button name="stock" onClick =  {e =>this.props.handleDelete(stock.id)}> Delete</button>
                   {/* Need a way to assign stock.id (from database) to Flex Parent for event Handler() to delete*/}
                 </FlexChild>
 
@@ -57,6 +61,7 @@ export default class TradeListResult extends React.Component {
           })}
         </TradeItem>
       </TradeResultContainer>
+    </>
     );
   }
 }

@@ -9,9 +9,11 @@ const Banner = styled.div`
   margin-bottom: 15px;
   border-radius: 15px;
   text-align:center;
-  border: 2px solid black;
   height: 175px;
   width: 300px;
+  background: linear-gradient(45deg,
+   rgba(139,231,151,1) 44%, 
+   rgba(148,201,233,1) 73%);  
 `;
 
 const HeaderText = styled.h1`

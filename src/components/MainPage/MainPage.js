@@ -11,15 +11,12 @@ export default class MainPage extends React.Component {
 
     this.state = {
       stocks: [
-      {name: "Apple", price: 133.40}, 
-      {name: "Microsoft", price: 243.90}, 
-      {name: "MongoDB" , price: 395.5},
-       ],
+        {name: "Apple", price: 133.40}, 
+        {name: "Microsoft", price: 243.90}, 
+        ],
     };
   }
 
-
-  // for GET all stocks currently
  componentDidMount(){
   this.getData()
  }
@@ -62,23 +59,16 @@ export default class MainPage extends React.Component {
 
   };
 
-  handleDelete = (event) => {
-    event.preventDefault()
-    const stockToDelete = {
-      id: ("20")
-    }
+  handleDelete = (id) => {
 
-    // NEED TO PASS IN TICKER NAME FROM RESULT COMPONENT TO PASS INTO FETCH REQUEST TEMPLATE LITERAL
-    
-     fetch(`http://localhost:8000/watchlist/stocks/${stockToDelete.id}`, {
+     fetch(`http://localhost:8000/watchlist/stocks/${id}`, {
       method: "delete", 
       headers: {
         "content-type": "application/json",
         "authorization": "bearer " + TokenService.getAuthToken()
       },
     })
-      .then(response => response.json())
-      .then(data => console.log('deleted'))
+      .then(data => this.getData())
     
   }
 

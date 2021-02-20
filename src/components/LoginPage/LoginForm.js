@@ -12,6 +12,7 @@ import { AccountContext } from "./AccountContext";
 import { withRouter } from "react-router-dom";
 import TokenService from '../../services/Token-Service'
 
+
 function LoginForm(props) {
   const { switchToSignup } = useContext(AccountContext);
 
@@ -37,8 +38,8 @@ function LoginForm(props) {
   return (
     <BoxContainer>
       <FormContainer onSubmit={onSubmit}>
-        <Input type="username" placeholder="Username" name="user_name" />
-        <Input type="password" placeholder="Password" name="password" />
+        <Input type="username" placeholder="Username" name="user_name" minLength="4"/>
+        <Input type="password" placeholder="Password" name="password" minLength="8"/>
         <Marginer direction="vertical" margin={5} />
         <MutedLink href="#">Forgot your password</MutedLink>
         <Marginer direction="vertical" margin="1.6 em" />
