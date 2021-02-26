@@ -11,6 +11,7 @@ import {
 import { AccountContext } from "./AccountContext";
 import { withRouter } from "react-router-dom";
 import TokenService from '../../services/Token-Service'
+import config from '../../config'
 
 
 function LoginForm(props) {
@@ -18,7 +19,7 @@ function LoginForm(props) {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    fetch("http://localhost:8000/auth/login", {
+    fetch(`${config.API_ENDPOINT}/auth/login`, {
       method: "post",
       headers: {
         "content-type": "application/json",

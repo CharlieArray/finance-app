@@ -1,6 +1,7 @@
 const config =  {
-    API_ENDPOINT: 'http://localhost:8000',
-    TOKEN_KEY: 'myAppKey123'
+    API_ENDPOINT: 'https://envelope-finance-server.herokuapp.com',
+    TOKEN_KEY: ''
+    //Token KEY on remote API server
   }
 
   export default config;

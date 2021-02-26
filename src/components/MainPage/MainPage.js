@@ -3,6 +3,7 @@ import MainPageBanner from './MainPageBanner'
 import TradeListForm from "./TradeListForm";
 import TradeListResult from "./TradeListResult";
 import TokenService from "../../services/Token-Service"
+import config from '../../config'
 
 export default class MainPage extends React.Component {
 
@@ -11,8 +12,8 @@ export default class MainPage extends React.Component {
 
     this.state = {
       stocks: [
-        {name: "Apple", price: 133.40}, 
-        {name: "Microsoft", price: 243.90}, 
+        {ticker: "AAPL", price: 133.40}, 
+        {ticker: "MSFT", price: 243.90}, 
         ],
     };
   }
@@ -26,7 +27,7 @@ export default class MainPage extends React.Component {
  }
 
   getData = () => {
-    fetch("http://localhost:8000/watchlist/stocks", {
+    fetch(`${config.API_ENDPOINT}/watchlist/stocks`, {
       method: "get",
       headers: {
         "content-type": "application/json",
@@ -46,7 +47,7 @@ export default class MainPage extends React.Component {
     }
   
     //fetch for front end/ request for back end
-    fetch(`http://localhost:8000/watchlist/stocks/${stock.stock}`, {
+    fetch(`${config.API_ENDPOINT}/watchlist/stocks/${stock.stock}`, {
       method: "post", 
       headers: {
         "content-type": "application/json",
@@ -61,7 +62,7 @@ export default class MainPage extends React.Component {
 
   handleDelete = (id) => {
 
-     fetch(`http://localhost:8000/watchlist/stocks/${id}`, {
+     fetch(`${config.API_ENDPOINT}/watchlist/stocks/${id}`, {
       method: "delete", 
       headers: {
         "content-type": "application/json",

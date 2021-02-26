@@ -4,6 +4,7 @@ import { Marginer } from "../marginer/index";
 import {FormContainer,Input,MutedLink,BoldLink,SubmitButton} from "./CommonComponents";
 import { AccountContext } from "./AccountContext";
 import {withRouter} from 'react-router-dom'
+import config from '../../config'
 
 
 function SignupForm(props) {
@@ -13,7 +14,7 @@ function SignupForm(props) {
   const onSubmit = (event) => {
     event.preventDefault();
 
-      fetch("http://localhost:8000/users", {
+      fetch(`${config.API_ENDPOINT}/users`, {
         method: "post",
         headers: {
           "content-type": "application/json",
