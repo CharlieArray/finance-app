@@ -1,16 +1,13 @@
-# Getting Started with Create React App
+## Envelope Finance Brokerage App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# App is built with React.js library 
 
-## Available Scripts
+# Instructions:
 
-In the project directory, you can run:
+# Login page allows user to create profile with username, email, and password.
 
-### `npm start` or depending on package management use `yarn start`
+# Data is saved on remote SQL database so data is stored when user exits out from app
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Main page allows user to search for stock market ticker symbols and get most recent price quote. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
 
