@@ -1,13 +1,13 @@
-## Envelope Finance Brokerage App
+# Envelope Finance Brokerage App
 
-# App is built with React.js library 
+### App is built with React.js library 
 
-# Instructions:
+### Instructions:
 
-# Login page allows user to create profile with username, email, and password.
+#### Login page allows user to create profile with username, email, and password.
 
-# Data is saved on remote SQL database so data is stored when user exits out from app
+#### Data is saved on remote SQL database so data is stored when user exits out from app
 
-# Main page allows user to search for stock market ticker symbols and get most recent price quote. 
+#### Main page allows user to search for stock market ticker symbols and get most recent price quote. 
 
 
