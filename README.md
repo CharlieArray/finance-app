@@ -4,6 +4,8 @@
 
 ### Link to app: https://finance-app-client.vercel.app/
 
+### Link to back-end code: https://github.com/CharlieArray/finance-app-server
+
 ### App uses: This app allows users to create a login profile and create a stock watchlist and search for stock ticker symbols. Users can add and delete stocks from watchlist. Stock quote prices that are fetched by users are most recent prices.
 
 ### Instructions:
