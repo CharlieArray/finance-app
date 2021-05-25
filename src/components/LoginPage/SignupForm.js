@@ -49,8 +49,6 @@ function SignupForm(props) {
         TokenService.saveAuthToken(data.authToken);
         props.history.push("/main");
       });
-
-    props.history.push("/main");
   };
 
   return (
