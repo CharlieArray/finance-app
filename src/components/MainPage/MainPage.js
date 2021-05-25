@@ -12,8 +12,6 @@ export default class MainPage extends React.Component {
 
     this.state = {
       stocks: [
-        {ticker: "AAPL", price: 133.40}, 
-        {ticker: "MSFT", price: 243.90}, 
         ],
     };
   }
